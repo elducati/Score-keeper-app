@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:fillViewport="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/left"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+            <TextView
+                android:id="@+id/team_a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:paddingTop="16dp"
+                android:text="Team A"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/team_a_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="16dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="56sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_a" />
+
+            <Button
+                android:id="@+id/team_a_score_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="16dp"
+                android:onClick="scoresForTeamA"
+                android:text="Scores"
+                app:layout_constraintTop_toBottomOf="@id/team_a_score" />
+
+            <TextView
+                android:id="@+id/possession"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="2dp"
+                android:text="50"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_a_score_button" />
+
+            <Button
+                android:id="@+id/possession_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="4dp"
+                android:onClick="teamAPossession"
+                android:text="Possession"
+                app:layout_constraintTop_toBottomOf="@id/possession" />
+
+            <TextView
+                android:id="@+id/fouls_committed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="2dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/possession_button" />
+
+            <Button
+                android:id="@+id/fouls_committed_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="4dp"
+                android:onClick="foulsCommittedByTeamA"
+                android:text="Fouls Committed"
+                app:layout_constraintTop_toBottomOf="@id/fouls_committed" />
+
+            <TextView
+                android:id="@+id/shorts_on_target"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="2dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fouls_committed_button" />
+
+            <Button
+                android:id="@+id/shorts_target"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="4dp"
+                android:onClick="shortsOnTargetForTeamA"
+                android:text="shorts on target"
+                app:layout_constraintTop_toBottomOf="@id/shorts_on_target" />
+
+            <TextView
+                android:id="@+id/corners"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="2dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/shorts_target" />
+
+            <Button
+                android:id="@+id/corner_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="4dp"
+                android:onClick="cornersForTeamA"
+                android:text="Corners"
+                app:layout_constraintTop_toBottomOf="@id/corners" />
+
+            <TextView
+                android:id="@+id/chances_created"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="2dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/corner_button" />
+
+            <Button
+                android:id="@+id/chances_created_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="4dp"
+                android:onClick="chancesCreatedByTeamA"
+                android:text="Chances Created"
+                app:layout_constraintTop_toBottomOf="@id/chances_created" />
+
+            <TextView
+                android:id="@+id/yellow_cards"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="2dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chances_created_button" />
+
+            <Button
+                android:id="@+id/yellow_cards_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="4dp"
+                android:onClick="yellowCardsForTeamA"
+                android:text="Yellow Cards"
+                app:layout_constraintTop_toBottomOf="@id/yellow_cards" />
+
+            <TextView
+                android:id="@+id/red_cards"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="2dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/yellow_cards_button" />
+
+            <Button
+                android:id="@+id/red_cards_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="4dp"
+                android:onClick="redCardsForTeamA"
+                android:text="Red Cards"
+                app:layout_constraintTop_toBottomOf="@id/red_cards" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/right"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <TextView
+                android:id="@+id/team_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:paddingTop="16dp"
+                android:text="Team B"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/team_b_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="16dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="56sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_b" />
+
+            <Button
+                android:id="@+id/team_b_score_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="16dp"
+                android:onClick="scoresForTeamB"
+                android:text="Scores"
+                app:layout_constraintTop_toBottomOf="@id/team_b_score" />
+
+            <TextView
+                android:id="@+id/possession_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="2dp"
+                android:text="50"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/team_b_score_button" />
+
+            <Button
+                android:id="@+id/possession_button_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="4dp"
+                android:onClick="teamBPossession"
+                android:text="Possession"
+                app:layout_constraintTop_toBottomOf="@id/possession_b" />
+
+            <TextView
+                android:id="@+id/fouls_committed_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="2dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/possession_button_b" />
+
+            <Button
+                android:id="@+id/fouls_committed_button_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="4dp"
+                android:onClick="foulsCommittedByTeamB"
+                android:text="Fouls Committed"
+                app:layout_constraintTop_toBottomOf="@id/fouls_committed_b" />
+
+            <TextView
+                android:id="@+id/shorts_on_target_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="2dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fouls_committed_button_b" />
+
+            <Button
+                android:id="@+id/shorts_target_button_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="4dp"
+                android:onClick="shortsOnTargetForTeamB"
+                android:text="shorts on target"
+                app:layout_constraintTop_toBottomOf="@id/shorts_on_target_b" />
+
+            <TextView
+                android:id="@+id/corners_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="2dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/shorts_target_button_b" />
+
+            <Button
+                android:id="@+id/corner_button_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="4dp"
+                android:onClick="cornersForTeamB"
+                android:text="Corners"
+                app:layout_constraintTop_toBottomOf="@id/corners_b" />
+
+            <TextView
+                android:id="@+id/chances_created_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="2dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/corner_button_b" />
+
+            <Button
+                android:id="@+id/chances_created_button_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="4dp"
+                android:onClick="chancesCreatedByTeamB"
+                android:text="Chances Created"
+                app:layout_constraintTop_toBottomOf="@id/chances_created_b" />
+
+            <TextView
+                android:id="@+id/yellow_cards_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="2dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chances_created_button_b" />
+
+            <Button
+                android:id="@+id/yellow_cards_button_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="4dp"
+                android:onClick="yellowCardsForTeamB"
+                android:text="Yellow Cards"
+                app:layout_constraintTop_toBottomOf="@id/yellow_cards_b" />
+
+            <TextView
+                android:id="@+id/red_cards_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="2dp"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="36sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/yellow_cards_button_b" />
+
+            <Button
+                android:id="@+id/red_cards_button_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="4dp"
+                android:onClick="redCardsForTeamB"
+                android:text="Red Cards"
+                app:layout_constraintTop_toBottomOf="@id/red_cards_b" />
+        </android.support.constraint.ConstraintLayout>
+
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="reset"
+            android:text="Reset"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
